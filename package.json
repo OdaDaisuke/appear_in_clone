@@ -1,0 +1,40 @@
+{
+  "name": "appear_in_clone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/antd": "^1.0.0",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^24.0.0",
+    "@types/react": "^16.8.2",
+    "@types/react-redux": "^7.0.1",
+    "@types/react-router": "^4.4.3",
+    "@types/react-transition-group": "^2.0.15",
+    "awesome-typescript-loader": "^5.2.1",
+    "axios": "^0.18.0",
+    "dotenv-webpack": "^1.7.0",
+    "jest": "^24.1.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "antd": "^3.13.2",
+    "aphrodite": "^2.2.3",
+    "aphrodite-jss": "^2.1.0",
+    "history": "^4.7.2",
+    "lodash": "^4.17.11",
+    "react-copy-text": "^1.0.1",
+    "react-dom": "^16.8.1",
+    "react-loading": "^2.0.3",
+    "react-mde": "^6.0.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.3",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "rulesDirectory": [
+      "./src"
+    ],
+    "extends": [ "tslint:recommended" ],
+    "rules": {
+      "max-classes-per-file":false,
+      "member-access":false,
+      "semicolon":false,
+      "interface-name":false,
+      "no-console":false,
+      "no-empty-interface":false,
+      "quotemark": false,
+      "object-literal-sort-keys": false,
+      "object-literal-key-quotes": false,
+      "array-type": false,
+      "member-ordering": false,
+      "no-unused-expression": false,
+      "radix": false,
+      "no-namespace": false,
+      "variable-name": false,
+      "disable-next-line": "only-arrow-functions"
+    }
+  }

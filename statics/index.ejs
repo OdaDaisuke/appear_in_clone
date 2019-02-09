@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Appear In Clone</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:url" content="https://localhost" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja" />
+    <meta property="og:title" content="Appear In Clone" />
+    <meta property="og:description" content="aaaaaaaaaaaaaaaaa" />
+    <meta property="og:image" content="https://localhost/assets/images/ogp.png" />
+    <meta property="fb:app_id" content="122222222222222222" />
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <base href="/" />
+  </head>
+
+  <body id="body">
+    <section id="main" >
+    </section>
+
+    <% if(!data.IS_PRODUCTION) { %>
+    <script>__REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOL_GLOBAL_HOOK__</script>
+    <% } %>
+    <script type="text/javascript" src="/assets/app.js?v=<%= data.SCRIPT_REVISION %>"></script>
+  </body>
+</html>

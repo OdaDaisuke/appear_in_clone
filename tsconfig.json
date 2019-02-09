@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "lib": ["es2017", "dom"],
+        "jsx": "react",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "typeRoots": ["./typings", "./node_modules/@types"],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": [
+        "./webpack.config.ts"
+    ]
+}

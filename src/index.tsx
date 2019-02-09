@@ -18,10 +18,10 @@ export class AppContainer {
 
 new AppContainer().initialize()
 
-// if ( module.hot ) {
-//     module.hot.accept((err: any) => {
-//         if (err) {
-//             console.error(err)
-//         }
-//     })
-// }
+if ( module.hot ) {
+    module.hot.accept((err: any) => {
+        if (err) {
+            console.error(err)
+        }
+    })
+}

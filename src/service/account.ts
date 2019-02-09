@@ -1,9 +1,9 @@
 import FirebaseClient from '../infra/firebase'
 import StorageClient from '../infra/storage'
+import { AuthMethod } from '../interfaces'
 
 interface AccountServiceProtocol {
-    signup: () => void
-    signin: () => void
+    signin: (authMethod: AuthMethod) => Promise<firebase.auth.UserCredential>
     signout: () => void
 }
 
@@ -16,20 +16,29 @@ export default class AccountService implements AccountServiceProtocol {
         this.storageClient = storageClient
     }
 
-    async signup() {
-    }
+    async signin(authMethod: AuthMethod): Promise<firebase.auth.UserCredential> {
+        const firebaseClient = this.firebaseClient
 
-    async signin() {
+        switch (authMethod) {
+            case AuthMethod.Email:
+                return await firebaseClient.signInWithEmail()
+            case AuthMethod.Twitter:
+                return await firebaseClient.signInWithTwitter()
+            case AuthMethod.Facebook:
+                return await firebaseClient.signInWidthFacebook()
+            case AuthMethod.Google:
+                return await firebaseClient.signInWidthGoogle()
+            case AuthMethod.Github:
+                return await firebaseClient.signInWidthGithub()
+            default:
+                return
+        }
+
+        return null
+
     }
 
     async signout() {
     }
 
-}
-
-export enum AuthMethod {
-    Twitter = "twitter",
-    Facebook = "facebook",
-    Line = "line",
-    Email = "email",
 }

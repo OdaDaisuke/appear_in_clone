@@ -4,6 +4,7 @@ export interface IConfig {
 
 export interface IEnv {
     skyWayApiKey: string
+    gaID: string
     firebase: IFirebaseConfig
 }
 
@@ -20,6 +21,7 @@ export const loadAppConfig = (): IConfig => {
     return {
         env: {
             skyWayApiKey: process.env.SKYWAY_API_KEY as string,
+            gaID: process.env.GA_ID as string,
             firebase: {
                 FirebaseApiKey: process.env.FIREBASE_API_KEY as string,
                 FirebaseAuthDomain: process.env.FIREBASE_AUTH_DOMAIN as string,

@@ -1,6 +1,11 @@
 import * as React from 'react'
+import AccountService from '../../service/account'
 
-export default () => {
+interface Props {
+    accountService: AccountService
+}
+
+export default (props: Props) => {
     return (
         <div>
             signup

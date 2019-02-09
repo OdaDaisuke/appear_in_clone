@@ -1,5 +1,6 @@
 import * as React from 'react'
-import SkyWayClient from '../../infra/skyway'
+import styled from 'styled-components'
+import SkyWayClient from '../../../infra/skyway'
 
 interface IVideoProps {
     width: number

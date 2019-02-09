@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import Video from '../components/video'
 import CommunicationService from '../../service/communication'
 
@@ -12,10 +13,7 @@ export default class Home extends React.Component<IHomeProps, any> {
         this.props.communicationService
         return (
             <div>
-                <Video
-                    width={800}
-                    height={500}
-                />
+                <Link to="/room">Room</Link>
             </div>
         )
     }

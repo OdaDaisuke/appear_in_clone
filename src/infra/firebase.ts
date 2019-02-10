@@ -8,11 +8,13 @@ export default class FirebaseClient {
 
     constructor(config: IFirebaseConfig) {
         this.config = config
+
+        this.init()
     }
 
     init() {
         firebase.initializeApp(this.config)
-        this.database = firebase.database()
+        // this.database = firebase.database()
         this.storage = firebase.storage()
     }
 

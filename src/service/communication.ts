@@ -1,4 +1,5 @@
 interface CommunicationServiceProtocol {
+    fetchRooms: () => Promise<number>
     createRoom: () => void
     enterRoom: () => void
     exitRoom: () => void
@@ -13,6 +14,10 @@ interface CommunicationServiceProtocol {
 }
 
 export default class CommunicationService implements CommunicationServiceProtocol {
+    async fetchRooms(): Promise<number> {
+        return 1
+    }
+
     createRoom() {
     }
 

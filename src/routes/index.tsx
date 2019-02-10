@@ -8,14 +8,12 @@ import About from '../views/pages/about'
 import Main from '../views/pages/main'
 
 const Root: React.FC<any> = () => {
-    const serviceFactory = new ServiceFactory()
-
     return (
         <Router history={createBrowserHistory()} >
             <Switch>
-                <Route path="/signup" exact render={() => <Signup accountService={serviceFactory.accountService}/>} />
+                <Route path="/signup" exact render={() => <Signup />} />
                 <Route path="/about" exact render={() => <About />} />
-                <Main serviceFactory={serviceFactory} />
+                <Main />
             </Switch>
         </Router>
     )

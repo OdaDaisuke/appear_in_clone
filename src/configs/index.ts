@@ -9,12 +9,12 @@ export interface IEnv {
 }
 
 export interface IFirebaseConfig {
-    FirebaseApiKey: string
-    FirebaseAuthDomain: string
-    FirebaseDatabaseURL: string
-    FirebaseProjectId: string
-    FirebaseStorageBucket: string
-    FirebaseMessagingSenderId: string
+    apiKey: string
+    authDomain: string
+    databaseURL: string
+    projectId: string
+    storageBucket: string
+    messagingSenderId: string
 }
 
 export const loadAppConfig = (): IConfig => {
@@ -23,12 +23,12 @@ export const loadAppConfig = (): IConfig => {
             skyWayApiKey: process.env.SKYWAY_API_KEY as string,
             gaID: process.env.GA_ID as string,
             firebase: {
-                FirebaseApiKey: process.env.FIREBASE_API_KEY as string,
-                FirebaseAuthDomain: process.env.FIREBASE_AUTH_DOMAIN as string,
-                FirebaseDatabaseURL: process.env.FIREBASE_DATABASE_URL as string,
-                FirebaseProjectId: process.env.FIREBASE_PROJECT_ID as string,
-                FirebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET as string,
-                FirebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID as string,
+                apiKey: process.env.FIREBASE_API_KEY as string,
+                authDomain: process.env.FIREBASE_AUTH_DOMAIN as string,
+                databaseURL: process.env.FIREBASE_DATABASE_URL as string,
+                projectId: process.env.FIREBASE_PROJECT_ID as string,
+                storageBucket: process.env.FIREBASE_STORAGE_BUCKET as string,
+                messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID as string,
             },
         }
     }

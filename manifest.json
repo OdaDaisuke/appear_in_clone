@@ -1,2 +1,28 @@
 {
+    "name": "AppearIn Clone",
+    "short_name": "AppearIn Clone",
+    "icons": [
+        {
+            "src": "/public/assets/images/apple-touch-icon-120x120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        }, {
+            "src": "/public/assets/images/apple-touch-icon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }, {
+            "src": "/public/assets/images/apple-touch-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }, {
+            "src": "/public/assets/images/touch-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/public/index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "gcm_sender_id": "11111111111111",
+    "background_color": "#ffffff"
 }

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import ServiceFactory from '../../service/factory'
 import Home from './main_home'
-import Room from './main_room'
+import Rooms from './main_rooms'
 import Header from '../components/header'
 import PageFactory from './factory';
 
@@ -16,7 +16,7 @@ const Main: React.FC<IMainProps> = (props: IMainProps) => {
         <section>
             <Header />
             <Switch>
-                <Route path="/room" exact render={(props) => pageFactory.Room(props)} />
+                <Route path="/rooms" exact render={(props) => pageFactory.Rooms(props)} />
                 <Route path="/" exact render={(props) => pageFactory.Home(props)} />
             </Switch>
         </section>

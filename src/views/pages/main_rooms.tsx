@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { setAccessToken, setRooms, fetchRooms, signIn, resetUser } from '../../stores/actions'
 import Video from '../components/video'
 
-interface IRoomProps {
+interface IRoomsProps {
 }
 
-class Room extends React.Component<IRoomProps, any> {
+class Rooms extends React.Component<IRoomsProps, any> {
 
     render() {
         return (
@@ -28,4 +28,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Room)
+export default connect(mapStateToProps, mapDispatchToProps)(Rooms)

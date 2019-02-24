@@ -1,16 +1,16 @@
 import { IConfig } from '../configs'
-import Peer from 'skyway-js'
+import * as Peer from 'skyway-js'
 
 export default class SkyWayClient {
-    stream: MediaStream
     config: IConfig
+    peer: Peer
 
     constructor(config: IConfig) {
         this.config = config
-    }
-
-    async init() {
-        this.stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false})
+        this.peer = new Peer({
+            key: config.env.skyWayApiKey,
+            debug: 3,
+        })
     }
 
 }

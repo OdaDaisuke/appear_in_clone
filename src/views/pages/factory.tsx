@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ServiceFactory from '../../service/factory'
 import Home from './main_home'
-import Room from './main_room'
+import Rooms from './main_rooms'
 
 export default class PageFactory {
     constructor() {
@@ -13,9 +13,9 @@ export default class PageFactory {
         />
     }
 
-    Room(props: Object) {
+    Rooms(props: Object) {
         return (
-            <Room
+            <Rooms
                 {...props}
             />
         )

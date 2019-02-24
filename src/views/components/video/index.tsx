@@ -7,33 +7,59 @@ interface IVideoProps {
     height: number
 }
 
-export default class Video extends React.Component<IVideoProps, any> {
+interface IVideoState {
+    videoRef: any
+    stream: MediaStream
+}
 
+export default class Video extends React.Component<IVideoProps, IVideoState> {
     constructor(props: any) {
         super(props)
         this.state = {
             videoRef: null,
+            stream: null,
         }
 
         this.setVideo = this.setVideo.bind(this)
+        this.setSpeechRecognition()
     }
 
     async setVideo(e) {
-        this.setState({ videoRef: e })
-        const wr = new SkyWayClient(null)
-        await wr.init()
+        this.setState({
+            videoRef: e,
+            stream: await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+            })
+        })
 
-        e.srcObject = wr.stream
+        e.srcObject = this.state.stream
+    }
+
+    setSpeechRecognition() {
+        // const recognition = new webkitSpeechRecognition()
+        // recognition.lang = 'ja-JP'
+        // recognition.maxAlternatives = 3
+
+        // setTimeout( () => {
+        //     recognition.stop()
+        // }, 5000)
+
+        // recognition.addEventListener('result', e => {
+        //     console.log(e)
+        // })
     }
 
     render() {
+
         return (
             <video
                 autoPlay
                 ref={this.setVideo}
-                src={this.state.stream}
                 width={this.props.width}
-                height={this.props.height}>
+                height={this.props.height}
+                style={ { filter: 'contrast(80%)' } }
+            >
             </video>
         )
     }

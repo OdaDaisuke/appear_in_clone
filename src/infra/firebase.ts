@@ -14,7 +14,7 @@ export default class FirebaseClient {
 
     init() {
         firebase.initializeApp(this.config)
-        // this.database = firebase.database()
+        this.database = firebase.database()
         this.storage = firebase.storage()
     }
 
@@ -24,26 +24,30 @@ export default class FirebaseClient {
 
     signInWithEmail(): Promise<firebase.auth.UserCredential> {
         const provider = new firebase.auth.EmailAuthProvider()
-        return firebase.auth().signInWithPopup(provider)
+        return this.signin(provider)
     }
 
     signInWithTwitter(): Promise<firebase.auth.UserCredential> {
         const provider = new firebase.auth.TwitterAuthProvider()
-        return firebase.auth().signInWithPopup(provider)
+        return this.signin(provider)
     }
 
     signInWidthFacebook(): Promise<firebase.auth.UserCredential> {
         const provider = new firebase.auth.FacebookAuthProvider()
-        return firebase.auth().signInWithPopup(provider)
+        return this.signin(provider)
     }
 
     signInWidthGithub(): Promise<firebase.auth.UserCredential> {
         const provider = new firebase.auth.GithubAuthProvider()
-        return firebase.auth().signInWithPopup(provider)
+        return this.signin(provider)
     }
 
     signInWidthGoogle(): Promise<firebase.auth.UserCredential> {
         const provider = new firebase.auth.GoogleAuthProvider()
+        return this.signin(provider)
+    }
+
+    private signin(provider: firebase.auth.AuthProvider): Promise<firebase.auth.UserCredential> {
         return firebase.auth().signInWithPopup(provider)
     }
 

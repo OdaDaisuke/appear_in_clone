@@ -1,0 +1,44 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:8.9.0
+    working_directory: ~/appear_in_clone
+    steps:
+      - checkout
+      - run:
+          name: node dependencies
+          command: sudo npm install -g yarn && sudo yarn
+      - run:
+          name: test
+          command: npm test
+  # DEV デプロイ
+  dev-deploy:
+    docker:
+      - image: circleci/node:8.9.0
+    working_directory: ~/appear_in_clone
+    steps:
+      - checkout
+      - run:
+          name: restore dotenv
+          command: echo -n $DOTENV_DEV | base64 --decode >  .env
+      - run:
+          name: node dependencies
+          command: sudo npm install -g yarn && sudo yarn
+      - run:
+          name: deploy
+          command: npm deploy:dev
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
+  dev-deploy:
+    jobs:
+      - dev-deploy:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only:
+                - /^release.*/

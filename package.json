@@ -7,7 +7,8 @@
     "tsc": "tsc webpack.config.ts",
     "copy:assets": "cp -R assets public/assets",
     "start": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack -w --mode=development",
-    "test": "jest ./src"
+    "test": "jest ./src",
+    "deploy:dev": "npx firebase deploy --only hosting --project \"$FIREBASE_PROJECT_ID\" --token \"$FIREBASE_TOKEN\""
   },
   "devDependencies": {
     "@types/antd": "^1.0.0",

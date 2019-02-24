@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "tsc": "tsc webpack.config.ts",
-    "copy:assets": "cp -R assets public/assets",
+    "copy:assets": "ls -la && cp -R ./assets public/assets",
     "start": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack -w --mode=development",
+    "build:dev": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack --mode=development",
     "test": "jest ./src --passWithNoTests",
     "deploy:dev": "firebase deploy --only hosting --project \"$FIREBASE_PROJECT_ID\" --token \"$FIREBASE_TOKEN\""
   },

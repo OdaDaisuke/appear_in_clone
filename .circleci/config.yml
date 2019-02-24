@@ -26,6 +26,9 @@ jobs:
           name: node dependencies
           command: sudo npm install -g yarn firebase-tools && sudo yarn
       - run:
+          name: build
+          command: npm run build:dev
+      - run:
           name: deploy
           command: npm run deploy:dev
 workflows:

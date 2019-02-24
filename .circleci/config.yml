@@ -24,7 +24,7 @@ jobs:
           command: echo -n $DOTENV_DEV | base64 --decode >  .env
       - run:
           name: node dependencies
-          command: sudo npm install -g yarn && sudo yarn
+          command: sudo npm install -g yarn firebase-tools && sudo yarn
       - run:
           name: deploy
           command: npm run deploy:dev

@@ -1,3 +1,5 @@
+import FirebaseClient from '../infra/firebase'
+
 interface CommunicationServiceProtocol {
     fetchRooms: () => Promise<number>
     createRoom: () => void
@@ -14,6 +16,12 @@ interface CommunicationServiceProtocol {
 }
 
 export default class CommunicationService implements CommunicationServiceProtocol {
+    firebaseClient: FirebaseClient
+
+    constructor(firebaseClient: FirebaseClient) {
+        this.firebaseClient = firebaseClient
+    }
+
     async fetchRooms(): Promise<number> {
         return 1
     }

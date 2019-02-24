@@ -1,4 +1,4 @@
-import FirebaseClient from '../infra/firebase'
+import FirebaseClient, { Collections } from '../infra/firebase'
 import StorageClient from '../infra/storage'
 import { AuthMethod } from '../interfaces'
 
@@ -21,24 +21,28 @@ export default class AccountService implements AccountServiceProtocol {
         }
     }
 
-    async signin(authMethod: AuthMethod): Promise<firebase.auth.UserCredential> {
+    signin(authMethod: AuthMethod): Promise<firebase.auth.UserCredential> {
         const firebaseClient = this.firebaseClient
-
         switch (authMethod) {
             case AuthMethod.Email:
-                return await firebaseClient.signInWithEmail()
+                return firebaseClient.signInWithEmail()
             case AuthMethod.Twitter:
-                return await firebaseClient.signInWithTwitter()
+                return firebaseClient.signInWithTwitter()
             case AuthMethod.Facebook:
-                return await firebaseClient.signInWidthFacebook()
+                return firebaseClient.signInWidthFacebook()
             case AuthMethod.Google:
-                return await firebaseClient.signInWidthGoogle()
+                return firebaseClient.signInWidthGoogle()
             case AuthMethod.Github:
-                return await firebaseClient.signInWidthGithub()
-            default:
-                return null
+                return firebaseClient.signInWidthGithub()
         }
 
+    }
+
+    writeData(id: string, name: string, profileImage: string) {
+        this.firebaseClient.writeData(Collections.Users, id, {
+            name: name,
+            profileImage: profileImage
+        })
     }
 
     async signout() {

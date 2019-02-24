@@ -65,6 +65,7 @@
     "react-mde": "^6.0.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "react-surface": "^0.3.1",
     "react-transition-group": "^2.5.3",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",

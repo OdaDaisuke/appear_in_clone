@@ -21,7 +21,7 @@ export interface TwitterProfile {
     favourites_count: number
     followers_count: number
     friends_count: number
-    id: number
+    id: string
     lang: string
     listed_count: number
     location: string

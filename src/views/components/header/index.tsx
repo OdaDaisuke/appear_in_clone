@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Menu from './menu'
 import { AuthResult, TwitterProfile } from '../../../interfaces'
@@ -20,6 +21,7 @@ class Header extends React.Component<HeaderProps, any> {
 
         return (
             <StyledHeader>
+                <Link to="/">TOP</Link>
                 <Menu
                     name={this.props.user.additionalUserInfo.username}
                     profileImageUrl={profile.profile_image_url}

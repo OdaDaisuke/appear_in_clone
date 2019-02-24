@@ -60,9 +60,10 @@ export default class FirebaseClient {
     }
 
     async writeData(collection: string, identifyID: string, mainData: Object): Promise<any> {
-         return await firebase.database()
+        const now = String((new Date()).getTime() / 1000)
+        return await firebase.database()
             .ref(`${collection}/${identifyID}`)
-            .set({ ...mainData })
+            .set({ ...mainData, createdAt: parseInt(now) })
     }
 
     private withTransaction(ref: firebase.database.Reference, uid: string, txFunc: TxFunc) {
@@ -76,6 +77,11 @@ export default class FirebaseClient {
     async upload() {
     }
 
+}
+
+export enum Collections {
+    Users = "users",
+    Rooms = "rooms",
 }
 
 type TxFunc = <T>(entity: T) => T

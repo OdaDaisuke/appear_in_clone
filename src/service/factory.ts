@@ -24,7 +24,7 @@ export default class ServiceFactory {
         this.indexedDBClient = new IndexedDBClient()
 
         this.accountService = new AccountService(this.firebaseClient, this.storageClient)
-        this.communicationService = new CommunicationService()
+        this.communicationService = new CommunicationService(this.firebaseClient)
     }
 
 }

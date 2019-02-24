@@ -1,5 +1,5 @@
 import ServiceFactory from '../../service/factory'
-import { AuthMethod, AuthResult } from '../../interfaces'
+import { AuthMethod, AuthResult, TwitterProfile } from '../../interfaces'
 import RouteController from '../../routes/controller'
 
 const serviceFactory = new ServiceFactory()
@@ -48,10 +48,12 @@ export const fetchRooms = () => {
 export const signIn = (authMethod: AuthMethod) => {
     return dispatch => {
         serviceFactory.accountService.signin(authMethod).then(res => {
+            const info = res.additionalUserInfo.profile as TwitterProfile
             const user: AuthResult = {
                 additionalUserInfo: res.additionalUserInfo,
                 authCredential: res.credential,
             }
+            serviceFactory.accountService.writeData(info.id, info.name, info.profile_image_url)
             dispatch(setUser(user))
         })
     }

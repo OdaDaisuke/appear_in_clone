@@ -6609,6 +6609,10 @@ react-slick@~0.23.2:
     prettier "^1.14.3"
     resize-observer-polyfill "^1.5.0"
 
+react-surface@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-surface/-/react-surface-0.3.1.tgz#7eb7f36921fd3a20e468b274479dedc44fe89be1"
+
 react-transition-group@^2.5.3:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.5.3.tgz#26de363cab19e5c88ae5dbae105c706cf953bb92"

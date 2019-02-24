@@ -24,6 +24,11 @@ const accountReducer = (state = initialState.account, action: IAccountAction) =>
                 ...state,
                 user: initialState.account.user,
             }
+        case 'SIGNOUT':
+            return {
+                ...state,
+                user: initialState.account.user,
+            }
         default:
             return state
     }

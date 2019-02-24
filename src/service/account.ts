@@ -53,4 +53,8 @@ export default class AccountService implements AccountServiceProtocol {
         this.authed = true
     }
 
+    destroyStorage() {
+        this.storageClient.destroy()
+    }
+
 }

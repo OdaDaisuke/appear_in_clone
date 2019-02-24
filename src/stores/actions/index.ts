@@ -56,3 +56,11 @@ export const signIn = (authMethod: AuthMethod) => {
         })
     }
 }
+
+export const signout = () => {
+    accountService.destroyStorage()
+
+    return {
+        type: 'SIGNOUT',
+    }
+}

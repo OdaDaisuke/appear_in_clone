@@ -11,4 +11,8 @@ export default class StorageClient {
     loadToken(): string {
         return this.storage.getItem("ACCESS_TOKEN")
     }
+
+    destroy() {
+        this.storage.clear()
+    }
 }

@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "DaisukeOda",
   "scripts": {
     "tsc": "tsc webpack.config.ts",
     "copy:assets": "mkdir public && mkdir public/assets && cp -R ./assets public/assets",
     "start": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack -w --mode=development",
     "build:dev": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack --mode=development",
     "test": "jest ./src --passWithNoTests",
-    "deploy:dev": "firebase deploy --only hosting --project \"$FIREBASE_PROJECT_ID\" --token \"$FIREBASE_TOKEN\""
+    "deploy:dev": "firebase deploy --only hosting --project \"$FIREBASE_PROJECT_ID\" --token \"$FIREBASE_TOKEN\"",
+    "webpack-analyze": "npm run build:dev -- --stats"
   },
   "devDependencies": {
     "@types/antd": "^1.0.0",
@@ -45,6 +47,7 @@
     "tslint": "^5.12.1",
     "typescript": "^3.3.3",
     "webpack": "^4.29.3",
+    "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {

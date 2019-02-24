@@ -5,6 +5,7 @@ var webpack = require("webpack");
 var path = require("path");
 var BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var ROOT_DIR = __dirname;
 var PUBLIC_DIR = path.resolve(ROOT_DIR, 'public');
 var STATIC_DIR = path.resolve(ROOT_DIR, 'statics');
@@ -41,7 +42,8 @@ var plugins = {
     }),
     definePlugin: new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    }),
+    bundleAnalyzerPlugin: new BundleAnalyzerPlugin()
 };
 var buildPlugins = {
     tsPlugins: function () {
@@ -55,7 +57,8 @@ var buildPlugins = {
         return [
             plugins.hotModule,
             plugins.dotEnv,
-            plugins.browserSync
+            plugins.browserSync,
+            plugins.bundleAnalyzerPlugin,
         ];
     },
     ejsPlugins: function () {

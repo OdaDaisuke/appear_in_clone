@@ -8,8 +8,16 @@ This is a clone application of Appear In.
 
 ## Technology stack
 
-Using `React` + `Redux` + `styled-components`, and implements DDD Layered architecture.
+### Frontend
 
-And also using `Firebase`, `WebRTC`, `SkyWay`, `CloudFunctions`, `BigQuery`.
+`React` + `Redux` + `styled-components`
 
-Moreover, this application is supporting PWA🎉.
+Supporting PWA.
+
+### Backend
+
+- `WebRTC`
+- `SkyWay`
+- `Firebase Hosting`
+- `CloudFunctions`
+- `BigQuery`.

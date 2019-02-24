@@ -3,6 +3,7 @@ import * as webpack from 'webpack'
 import * as path from 'path'
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin'
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const ROOT_DIR = __dirname
 const PUBLIC_DIR = path.resolve(ROOT_DIR, 'public')
@@ -42,7 +43,8 @@ const plugins = {
     }),
     definePlugin: new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    }),
+    bundleAnalyzerPlugin: new BundleAnalyzerPlugin(),
 }
 
 const buildPlugins = {
@@ -57,7 +59,8 @@ const buildPlugins = {
         return [
             plugins.hotModule,
             plugins.dotEnv,
-            plugins.browserSync
+            plugins.browserSync,
+            plugins.bundleAnalyzerPlugin,
         ]
     },
     ejsPlugins: () => {

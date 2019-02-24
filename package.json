@@ -9,9 +9,8 @@
     "copy:assets": "cp -R assets/ public/assets/",
     "copy:assets:ci": "mkdir public && mkdir public/assets && cp -R ./assets public/assets",
     "start": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack -w --mode=development",
-    "build:dev": "npm run tsc && npm run copy:assets:ci && NODE_ENV=development webpack --mode=development",
+    "build": "npm run tsc && npm run copy:assets:ci && NODE_ENV=production webpack --mode=production",
     "test": "jest ./src --passWithNoTests",
-    "deploy:dev": "firebase deploy --only hosting --project \"$FIREBASE_PROJECT_ID\" --token \"$FIREBASE_TOKEN\"",
     "webpack-analyze": "npm run build:dev -- --stats"
   },
   "devDependencies": {

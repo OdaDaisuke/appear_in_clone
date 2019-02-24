@@ -7,3 +7,4 @@ yarn-error.log
 firebase-debug.log
 .firebase
 stats.json
+webpack.config.js

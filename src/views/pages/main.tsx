@@ -15,6 +15,7 @@ const Main: React.FC<IMainProps> = (props: IMainProps) => {
             <Header />
             <Switch>
                 <Route path="/rooms" exact render={(props) => pageFactory.Rooms(props)} />
+                <Route path="/profile" exact render={(props) => pageFactory.Profile(props)} />
                 <Route path="/" exact render={(props) => pageFactory.Home(props)} />
             </Switch>
         </section>

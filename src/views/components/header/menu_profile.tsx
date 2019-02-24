@@ -3,15 +3,20 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledProfile = styled.img`
-width: 40px;
-height: 40px;
+width: 38px;
+height: 38px;
 border-radius: 50%;
-margin-left: 5px;
-background-color: #efefef;
+margin: 5px 0;
+border: 1px solid #f1f1f1;
 `
 
-const MenuProfile = (props: { imageUrl?: string} ) => {
-    const imageUrl = props.imageUrl ? props.imageUrl : ""
+interface Props {
+    name: string
+    profileImageUrl: string
+}
+
+const MenuProfile = (props: Props ) => {
+    const imageUrl = props.profileImageUrl ? props.profileImageUrl : "/assets/images/profile_default.png"
     return (
         <Link to="/profile">
             <StyledProfile src={imageUrl} />

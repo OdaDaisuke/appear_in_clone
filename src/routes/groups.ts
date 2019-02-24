@@ -28,11 +28,12 @@ export class RouteGroup {
     }
 }
 
-export const TOP    = new Route("/")
-export const ROOMS  = new Route("/rooms")
-export const ROOM   = new Route("/room")
-export const SIGNUP = new Route("/signup")
-export const ABOUT  = new Route("/about")
+export const TOP      = new Route("/")
+export const ROOMS    = new Route("/rooms")
+export const ROOM     = new Route("/room")
+export const SIGNUP   = new Route("/signup")
+export const ABOUT    = new Route("/about")
+export const PROFILE  = new Route("/profile")
 
 export const UNRISTRICTED_GROUPS = new RouteGroup([
     SIGNUP,

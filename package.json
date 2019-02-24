@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "tsc": "tsc webpack.config.ts",
-    "copy:assets": "ls -la && cp -R ./assets public/assets",
+    "copy:assets": "mkdir public && mkdir public/assets && cp -R ./assets public/assets",
     "start": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack -w --mode=development",
     "build:dev": "npm run tsc && npm run copy:assets && NODE_ENV=development webpack --mode=development",
     "test": "jest ./src --passWithNoTests",

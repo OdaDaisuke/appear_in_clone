@@ -1,16 +1,14 @@
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import ServiceFactory from '../../service/factory'
-import Home from './main_home'
-import Rooms from './main_rooms'
 import Header from '../components/header'
-import PageFactory from './factory';
+import PageFactory from './factory'
 
 interface IMainProps {
+    pageFactory: PageFactory
 }
 
 const Main: React.FC<IMainProps> = (props: IMainProps) => {
-    const pageFactory = new PageFactory()
+    const pageFactory = props.pageFactory
 
     return (
         <section>

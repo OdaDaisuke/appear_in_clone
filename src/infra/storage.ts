@@ -3,4 +3,12 @@ export default class StorageClient {
 
     constructor() {
     }
+
+    setToken(token: string) {
+        this.storage.setItem("ACCESS_TOKEN", token)
+    }
+
+    loadToken(): string {
+        return this.storage.getItem("ACCESS_TOKEN")
+    }
 }

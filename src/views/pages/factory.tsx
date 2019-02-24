@@ -1,24 +1,27 @@
 import * as React from 'react'
-import ServiceFactory from '../../service/factory'
 import Home from './main_home'
 import Rooms from './main_rooms'
+import Signup from './signup'
+import About from './about'
 
 export default class PageFactory {
     constructor() {
     }
 
     Home(props: Object) {
-        return <Home
-            {...props}
-        />
+        return <Home {...props} />
     }
 
     Rooms(props: Object) {
-        return (
-            <Rooms
-                {...props}
-            />
-        )
+        return <Rooms {...props} />
+    }
+
+    Signup(props: Object) {
+        return <Signup {...props} />
+    }
+
+    About(props: Object) {
+        return <About {...props} />
     }
 
 }

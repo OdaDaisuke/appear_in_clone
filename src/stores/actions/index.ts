@@ -1,7 +1,10 @@
 import ServiceFactory from '../../service/factory'
 import { AuthMethod, AuthResult } from '../../interfaces'
+import RouteController from '../../routes/controller'
 
 const serviceFactory = new ServiceFactory()
+const accountService = serviceFactory.accountService
+new RouteController(serviceFactory.accountService)
 
 export const setAccessToken = accessToken => {
     return {
@@ -18,6 +21,8 @@ export const setRooms = rooms => {
 }
 
 export const setUser = (user: AuthResult) => {
+    accountService.setToken(user.authCredential.providerId)
+
     return {
         type: 'SET_USER',
         user,

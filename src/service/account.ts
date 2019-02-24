@@ -8,12 +8,17 @@ interface AccountServiceProtocol {
 }
 
 export default class AccountService implements AccountServiceProtocol {
+    authed: boolean = false
+
     private firebaseClient: FirebaseClient
     private storageClient: StorageClient
 
     constructor(firebaseClient: FirebaseClient, storageClient: StorageClient) {
         this.firebaseClient = firebaseClient
         this.storageClient = storageClient
+        if (this.lodaToken()) {
+            this.authed = true
+        }
     }
 
     async signin(authMethod: AuthMethod): Promise<firebase.auth.UserCredential> {
@@ -31,14 +36,21 @@ export default class AccountService implements AccountServiceProtocol {
             case AuthMethod.Github:
                 return await firebaseClient.signInWidthGithub()
             default:
-                return
+                return null
         }
-
-        return null
 
     }
 
     async signout() {
+    }
+
+    lodaToken(): string {
+        return this.storageClient.loadToken()
+    }
+
+    setToken(token: string) {
+        this.storageClient.setToken(token)
+        this.authed = true
     }
 
 }

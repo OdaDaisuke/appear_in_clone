@@ -11,8 +11,7 @@ const Menu: React.FC = () => {
 
     return (
         <StyledMenu>
-            <MenuItem label="登録" onClick={null} />
-            <MenuItem label="HELP" onClick={null} />
+            <MenuItem label="アカウント" onClick={null} withProfile />
         </StyledMenu>
     )
 }

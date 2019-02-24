@@ -27,7 +27,7 @@ jobs:
           command: sudo npm install -g yarn && sudo yarn
       - run:
           name: deploy
-          command: npm deploy:dev
+          command: npm run deploy:dev
 workflows:
   version: 2
   test:

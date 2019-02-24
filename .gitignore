@@ -4,3 +4,4 @@ node_modules
 public/*
 yarn-error.log
 .env
+firebase-debug.log

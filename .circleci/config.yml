@@ -38,7 +38,5 @@ workflows:
       - dev-deploy:
           filters:
             branches:
-              ignore: /.*/
-            tags:
               only:
-                - /^release.*/
+                - master

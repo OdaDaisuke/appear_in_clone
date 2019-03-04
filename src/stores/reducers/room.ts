@@ -3,6 +3,7 @@ import initialState from '../initialState'
 
 interface IRoomAction extends Action {
     rooms: any
+    room: any
 }
 
 const roomReducer = (state = initialState.room, action: IRoomAction) => {
@@ -11,6 +12,11 @@ const roomReducer = (state = initialState.room, action: IRoomAction) => {
             return {
                 ...state,
                 rooms: action.rooms,
+            }
+        case 'SET_ROOM':
+            return {
+                ...state,
+                rooms: [...state.rooms, action.room ]
             }
         default:
             return state

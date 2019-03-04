@@ -1,8 +1,8 @@
 import FirebaseClient from '../infra/firebase'
 
 interface CommunicationServiceProtocol {
-    fetchRooms: () => Promise<number>
-    createRoom: () => void
+    fetchRooms: (id: string) => Promise<firebase.database.DataSnapshot>
+    createRoom: (userId: string, title: string) => void
     enterRoom: () => void
     exitRoom: () => void
 
@@ -22,11 +22,12 @@ export default class CommunicationService implements CommunicationServiceProtoco
         this.firebaseClient = firebaseClient
     }
 
-    async fetchRooms(): Promise<number> {
-        return 1
+    async fetchRooms(id: string): Promise<firebase.database.DataSnapshot> {
+        return await this.firebaseClient.firebase.database().ref(`users/${id}/rooms`)
     }
 
-    createRoom() {
+    async createRoom(userId: string, title: string) {
+        return await this.firebaseClient.createRoom(userId, title)
     }
 
     enterRoom() {

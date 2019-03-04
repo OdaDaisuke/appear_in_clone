@@ -51,7 +51,6 @@ var buildPlugins = {
             return [
                 plugins.definePlugin,
                 plugins.dotEnv,
-                plugins.browserSync,
             ];
         }
         return [

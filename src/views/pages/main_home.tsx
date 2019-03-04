@@ -36,7 +36,7 @@ class Home extends React.Component<IHomeProps, any> {
 
         return (
             <div>
-                <Link to="/room">Room</Link>
+                <Link to="/rooms">Room一覧</Link>
                 {name()}
             </div>
         )

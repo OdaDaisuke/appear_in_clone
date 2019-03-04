@@ -20,6 +20,13 @@ export const setRooms = rooms => {
     }
 }
 
+export const setRoom = room => {
+    return {
+        type: 'SET_ROOM',
+        room,
+    }
+}
+
 export const setUser = (user: AuthResult) => {
     accountService.setToken(user.authCredential.providerId)
 
@@ -37,12 +44,20 @@ export const resetUser = () => {
 
 /*------ Async actions ------*/
 
-export const fetchRooms = () => {
+export const fetchRooms = (userId: string) => {
     return dispatch => {
-        serviceFactory.communicationService.fetchRooms().then( rooms => {
+        serviceFactory.communicationService.fetchRooms(userId).then( rooms => {
             dispatch(setRooms(rooms))
         })
     };
+}
+
+export const createRoom = (userId: string, title: string) => {
+    return dispatch => {
+        serviceFactory.communicationService.createRoom(userId, title).then( room => {
+            dispatch(setRoom(room))
+        })
+    }
 }
 
 export const signIn = (authMethod: AuthMethod) => {

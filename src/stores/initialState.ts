@@ -4,7 +4,7 @@ const initialState = {
         user: null,
     },
     room: {
-        rooms: null,
+        rooms: [],
     },
 }
 

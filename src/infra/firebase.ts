@@ -68,10 +68,10 @@ export default class FirebaseClient {
             .set({ ...mainData, createdAt: parseInt(now) })
     }
 
-    async createRoom(userId: string, title: string): Promise<any> {
-        await this.firebase.database().ref(`users/${userId}/rooms`)
+    async createRoom(userId: string, roomId: string, title: string): Promise<any> {
+        await this.firebase.database().ref(`users/${userId}/rooms/${roomId}`)
             .set({ title, now: this.now, })
-        await this.firebase.database().ref(`rooms`)
+        return await this.firebase.database().ref(`rooms/${roomId}`)
             .set({ title, now: this.now, userId: userId })
     }
 

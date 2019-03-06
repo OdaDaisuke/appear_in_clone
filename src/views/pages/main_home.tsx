@@ -12,7 +12,7 @@ interface IHomeProps {
     resetUser: () => void
 }
 
-class Home extends React.Component<IHomeProps, any> {
+class HomePage extends React.Component<IHomeProps, any> {
 
     render() {
         const name = () => {
@@ -59,4 +59,4 @@ const mapDispatchToProps = {
     resetUser,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

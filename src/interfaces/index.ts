@@ -1,5 +1,3 @@
-import { BlockOverflowProperty } from "csstype";
-
 export enum AuthMethod {
     Twitter = "twitter",
     Facebook = "facebook",
@@ -68,4 +66,15 @@ export interface GithubProfile {
     name: string
     public_gists: number
     public_repos: number
+}
+
+/*--------------------------
+ * Models
+ *--------------------------*/
+
+export interface Room {
+    id: string
+    userId: string
+    title: string
+    description
 }

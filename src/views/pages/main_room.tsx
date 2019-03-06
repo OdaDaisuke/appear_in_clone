@@ -1,31 +1,47 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { setAccessToken, setRooms, fetchRooms, signIn, resetUser } from '../../stores/actions'
-import Video from '../components/video'
 
-interface IRoomProps {
+interface IRoomsProps {
+    rooms: any
+    accessToken: string
+    roomId: string
 }
 
-class Room extends React.Component<IRoomProps, any> {
+interface State {
+    title: string
+    rooms: any,
+}
+
+class RoomPage extends React.Component<IRoomsProps, State> {
+    room: any
+
+    constructor(props: IRoomsProps) {
+        super(props)
+        this.room = this.props.rooms[this.props.roomId]
+    }
+
+    async componentDidMount() {
+    }
 
     render() {
         return (
             <div>
-                <Video
-                    width={800}
-                    height={500}
-                />
+                {this.room.id}
+                {this.room.title}
             </div>
         )
     }
+
 }
 
 const mapStateToProps = state => {
     return {
+        accessToken: state.accountReducer.accessToken,
+        rooms: state.roomReducer.rooms,
     }
 }
 
 const mapDispatchToProps = {
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Room)
+export default connect(mapStateToProps, mapDispatchToProps)(RoomPage)

@@ -1,32 +1,43 @@
 import * as React from 'react'
-import Home from './main_home'
-import Rooms from './main_rooms'
-import Profile from './main_profile'
-import Signup from './signup'
-import About from './about'
+import * as ReactRouter from 'react-router'
+import HomePage from './main_home'
+import RoomPage from './main_room'
+import RoomsTop from './main_rooms_top'
+import ProfilePage from './main_profile'
+import SignupPage from './signup'
+import AboutPage from './about'
+
+type RoomPageParams = {
+    id: string
+}
 
 export default class PageFactory {
     constructor() {
     }
 
     Home(props: Object) {
-        return <Home {...props} />
+        return <HomePage {...props} />
     }
 
-    Rooms(props: Object) {
-        return <Rooms {...props} />
+    RoomsTop(props: Object) {
+        return <RoomsTop {...props} />
+    }
+
+    RoomPage(props: { match: ReactRouter.match<RoomPageParams> }) {
+        const id = props.match.params.id
+        return <RoomPage roomId={id} />
     }
 
     Profile(props: Object) {
-        return <Profile {...props} />
+        return <ProfilePage {...props} />
     }
 
     Signup(props: Object) {
-        return <Signup {...props} />
+        return <SignupPage {...props} />
     }
 
     About(props: Object) {
-        return <About {...props} />
+        return <AboutPage {...props} />
     }
 
 }

@@ -15,7 +15,6 @@ const Menu: React.FC<Props> = (props) => {
         list-style: none;
         display: flex;
         justify-content: flex-end;
-        margin: 0 auto;
         max-width: 1145px;
     `
 

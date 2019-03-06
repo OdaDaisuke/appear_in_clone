@@ -1,10 +1,12 @@
+import * as uuid from 'uuid/v4'
 import ServiceFactory from '../../service/factory'
 import { AuthMethod, AuthResult, TwitterProfile } from '../../interfaces'
 import RouteController from '../../routes/controller'
+import * as route from '../../routes/groups'
 
 const serviceFactory = new ServiceFactory()
 const accountService = serviceFactory.accountService
-new RouteController(serviceFactory.accountService)
+const router = new RouteController(serviceFactory.accountService)
 
 export const setAccessToken = accessToken => {
     return {
@@ -45,18 +47,22 @@ export const resetUser = () => {
 /*------ Async actions ------*/
 
 export const fetchRooms = (userId: string) => {
-    return dispatch => {
-        serviceFactory.communicationService.fetchRooms(userId).then( rooms => {
-            dispatch(setRooms(rooms))
-        })
+    return async dispatch => {
+        const rooms = await serviceFactory.communicationService.fetchRooms(userId)
+        dispatch(setRooms(rooms))
     };
 }
 
 export const createRoom = (userId: string, title: string) => {
-    return dispatch => {
-        serviceFactory.communicationService.createRoom(userId, title).then( room => {
-            dispatch(setRoom(room))
-        })
+    const roomID = uuid()
+
+    return async dispatch => {
+        await serviceFactory.communicationService.createRoom(userId, roomID, title)
+        dispatch(setRoom({
+            id: roomID,
+            userID: userId,
+            title: title,
+        }))
     }
 }
 
@@ -70,6 +76,8 @@ export const signIn = (authMethod: AuthMethod) => {
             }
             serviceFactory.accountService.writeData(info.id, info.name, info.profile_image_url)
             dispatch(setUser(user))
+
+            router.push(route.TOP.path)
         })
     }
 }

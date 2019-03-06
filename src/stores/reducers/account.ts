@@ -15,9 +15,11 @@ const accountReducer = (state = initialState.account, action: IAccountAction) =>
                 accessToken: action.accessToken,
             }
         case 'SET_USER':
+            const authCredential = action.user.authCredential as any
             return {
                 ...state,
                 user: action.user,
+                accessToken: authCredential.accessToken
             }
         case 'RESET_USER':
             return {

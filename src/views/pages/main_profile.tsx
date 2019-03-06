@@ -11,7 +11,7 @@ interface Props {
     resetUser: () => void
 }
 
-class Profile extends React.Component<Props, any> {
+class ProfilePage extends React.Component<Props, any> {
 
     render() {
 
@@ -39,4 +39,4 @@ const mapDispatchToProps = {
     resetUser,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)

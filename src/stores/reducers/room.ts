@@ -1,9 +1,11 @@
 import { Action } from 'redux'
 import initialState from '../initialState'
+import { Room } from '../../interfaces'
 
 interface IRoomAction extends Action {
-    rooms: any
-    room: any
+    rooms: Array<Room>
+    room: Room
+    curRoomId: number
 }
 
 const roomReducer = (state = initialState.room, action: IRoomAction) => {
@@ -17,6 +19,17 @@ const roomReducer = (state = initialState.room, action: IRoomAction) => {
             return {
                 ...state,
                 rooms: [...state.rooms, action.room ]
+            }
+        case 'ENTER_ROOM':
+            return {
+                ...state,
+                curRoomId: action.curRoomId,
+            }
+        case 'EXIT_ROOM':
+        case 'FINISH_VIDEO_CHAT':
+            return {
+                ...state,
+                curRoomID: initialState.curRoomID,
             }
         default:
             return state

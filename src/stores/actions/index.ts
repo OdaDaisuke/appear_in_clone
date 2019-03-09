@@ -6,6 +6,7 @@ import * as route from '../../routes/groups'
 
 const serviceFactory = new ServiceFactory()
 const accountService = serviceFactory.accountService
+const communicationService = serviceFactory.communicationService
 const router = new RouteController(serviceFactory.accountService)
 
 export const setAccessToken = accessToken => {
@@ -89,3 +90,19 @@ export const signout = () => {
         type: 'SIGNOUT',
     }
 }
+
+export const enterRoom = (curRoomId: number) => {
+    communicationService
+    return {
+        type: 'ENTER_ROOM',
+        curRoomId,
+    }
+}
+
+export const finishVideoChat = () => {
+    return {
+        type: 'FINISH_VIDEO_CHAT',
+    }
+}
+
+export const exitVideochat = finishVideoChat

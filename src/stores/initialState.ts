@@ -6,6 +6,7 @@ const initialState = {
     room: {
         rooms: [],
     },
+    curRoomID: 0,
 }
 
 export default initialState
